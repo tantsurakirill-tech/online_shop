@@ -16,3 +16,15 @@ def show_products(products):
 
 
 show_products(products)
+
+def search_products(products, query):
+    result = []
+
+    for product in products:
+        if query.lower() in product["name"].lower():
+            result.append(product)
+
+    return result
+
+
+print(search_products(products, 'бук'))
