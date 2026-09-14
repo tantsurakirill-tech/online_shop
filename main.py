@@ -20,12 +20,14 @@ def search_products(products: list[dict[str, int | str]], query: str) -> list[di
     return [product for product in products if query.lower() in product["name"].lower()]
 
 
-def filter_by_price(products: list[dict[str, int | str]], price: int):
-    return [product for product in products if product["price"] > price]
+def filter_by_price(products: list[dict[str, int | str]], price: int) -> list[dict[str, int | str]]:
+    return [product for product in products if product["price"] >= price]
 
 
-show_products(products)
+def main():
+    show_products(products)
+    print(search_products(products, "бук"))
+    print(filter_by_price(products, 7500))
 
-print(search_products(products, 'бук'))
-
-print(filter_by_price(products, 7500))
+if __name__ == '__main__':
+    main()
