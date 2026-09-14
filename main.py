@@ -15,16 +15,10 @@ def show_products(products):
         )
 
 
+
+def search_products(products: list[dict[str, int | str]], query: str) -> list[dict[str, int | str]]:
+    return [product for product in products if query.lower() in product["name"].lower()]
+
+
 show_products(products)
-
-def search_products(products, query):
-    result = []
-
-    for product in products:
-        if query.lower() in product["name"].lower():
-            result.append(product)
-
-    return result
-
-
 print(search_products(products, 'бук'))
